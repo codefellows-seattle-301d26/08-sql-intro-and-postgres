@@ -12,11 +12,11 @@ const conString = 'postgres://localhost:5432'
 
 const client = new pg.Client(conString);
 
-// REVIEW: Use the client object to connect to our DB.
+// REVIEW: Use the client object to connect to our DB. DONE
 client.connect();
 
 
-// REVIEW: Install the middleware plugins so that our app can use the body-parser module.
+// REVIEW: Install the middleware plugins so that our app can use the body-parser module. DONE
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
@@ -25,7 +25,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // These lines of code represent #2 #5 on the full stack diagram. The Article.prototype.intersetRecord is the method in article.js that is interacting with this piece of server.js. These lines of code are using 'READ' part of CRUD because we used the .get method. 
   response.sendFile('new.html', {root: './public'});
 });
 
