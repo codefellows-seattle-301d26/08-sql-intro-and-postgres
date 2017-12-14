@@ -25,7 +25,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // These lines of code represent #2 #5 on the full stack diagram. The Article.prototype.intersetRecord is the method in article.js that is interacting with this piece of server.js. These lines of code are using 'read' part of CRUD because we used the .get method. 
+  // These lines of code represent #2 #5 on the full stack diagram. The Article.loadAll  is the method in article.js that is interacting with this piece of server.js. These lines of code are using 'read' part of CRUD because we used the .get method.
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -34,7 +34,7 @@ app.get('/new', (request, response) => {
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   //These lines of code represent #3 and #4 on the full stack diagram. The Article.fetchAll is the method that is interacting with this particular piece of code. The 'retrieve' part of CRUD is being used to get data from database.
-  
+
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -46,7 +46,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // these lines of code represent the  #3 #4  on the full stack diagram.The Article.prototype.insertRecord is the method that is interacting with this particular piece of code. The 'create ' part of CRUD is being used to insert data into database.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
