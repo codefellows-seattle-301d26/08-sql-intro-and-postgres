@@ -12,11 +12,11 @@ const conString = 'postgres://localhost:5432'
 
 const client = new pg.Client(conString);
 
-// REVIEW: Use the client object to connect to our DB. DONE
+// REVIEW: Use the client object to connect to our DB. 
 client.connect();
 
 
-// REVIEW: Install the middleware plugins so that our app can use the body-parser module. DONE
+// REVIEW: Install the middleware plugins so that our app can use the body-parser module. 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
