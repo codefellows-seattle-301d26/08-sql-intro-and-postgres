@@ -1,6 +1,6 @@
-# Project Name
+# Project Name 08-sql-intro-and-postgres
 
-**Author**: Your Name Goes Here
+**Author**: Cody Jesus Caitlin
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
