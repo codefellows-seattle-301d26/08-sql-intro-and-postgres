@@ -2,12 +2,15 @@
 
 const fs = require('fs');
 const express = require('express');
+const { Client } = require('pg')
 
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-const client = new pg.Client();
+const DATABASE_URL = 'postgres://localhost:5432/kilovolt';
+
+const client = new Client(DATABASE_URL);
 
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
@@ -22,7 +25,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // 5. We aren't using any part of article.js because we are just feeding the new.html. We are updating the content on the page for the client.
+  // PUT YOUR RESPONSE HERE
   response.sendFile('new.html', {root: './public'});
 });
 
