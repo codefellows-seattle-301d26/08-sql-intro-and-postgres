@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const express = require('express');
-
+const pg = require('pg');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5432;
-const conString = 'postgres://postgres:1234@localhost:5432/kilovolt';
+const PORT = process.env.PORT || 3000;
+const conString = 'postgres://postgres:123@localhost:5433/kilovolt';
 const app = express();
 
 const client = new pg.Client(conString);
