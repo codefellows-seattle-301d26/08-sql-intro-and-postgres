@@ -1,0 +1,24 @@
+{
+  "name": "08-sql-intro-and-postgres",
+  "version": "1.0.0",
+  "description": "introduction to sql and postgress ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozgekb/08-sql-intro-and-postgres.git"
+  },
+  "keywords": [
+    "lab8",
+    "sql",
+    "nodejs"
+  ],
+  "author": "ozge-liza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ozgekb/08-sql-intro-and-postgres/issues"
+  },
+  "homepage": "https://github.com/ozgekb/08-sql-intro-and-postgres#readme"
+}
