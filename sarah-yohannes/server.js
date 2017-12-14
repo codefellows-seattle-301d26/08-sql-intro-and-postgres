@@ -3,15 +3,19 @@
 const fs = require('fs');
 const express = require('express');
 const { Client } = require('pg');
+
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
-const DATABASE_URL = 'postgres://SARAH:123@HOST:PORT/DBNAME';
-const client = new pg.Client(DATABASE_URL);
+
+
+const conString = 'postgres://sarah:123@localhost:5432/kilovolt';
+const client = new Client(conString);
 
 
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
+
 
 
 // REVIEW: Install the middleware plugins so that our app can use the body-parser module.
@@ -23,7 +27,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // This line is saying, hey router (express, via 'app') when the 'view' requests '/new', go to the server/'controller' and get new.html from the public directory, then send that file to the client.  This corresponds to #2 and #5. 
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -31,7 +35,8 @@ app.get('/new', (request, response) => {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+
+  // this line says hey router, when the router asks for /articles, go to the model, and select EVERYTHING, then take the rows (ie all the article objects) from that 'select all' function and send them as the response, when 'app' ie 'express' ie the controller/router requests /articles.  Which is to say when something on the view, triggers a request for the URI '/articles'.
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
