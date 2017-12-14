@@ -1,0 +1,27 @@
+{
+  "name": "08-sql-intro-and-postgres",
+  "version": "1.0.0",
+  "description": "Lab 8 ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/splitpeasoup/08-sql-intro-and-postgres.git"
+  },
+  "keywords": [
+    "we",
+    "are",
+    "awesome"
+  ],
+  "author": "Cody/Jesus/Caitlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/splitpeasoup/08-sql-intro-and-postgres/issues"
+  },
+  "homepage": "https://github.com/splitpeasoup/08-sql-intro-and-postgres#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
