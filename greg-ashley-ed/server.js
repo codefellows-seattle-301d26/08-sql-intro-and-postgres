@@ -2,10 +2,9 @@
 
 const fs = require('fs');
 const express = require('express');
-
 const bodyParser = require('body-parser');
 const pg = require('pg');
-const Client = new pg.Client();
+const Client = pg.Client;
 const PORT = process.env.PORT || 3000;
 const DATABASE_URL = 'postgres://localhost:5432/users'
 const client = new Client(DATABASE_URL)
@@ -18,7 +17,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
@@ -27,7 +25,6 @@ app.get('/new', (request, response) => {
   // CRUD: Read.
   response.sendFile('new.html', {root: './public'});
 });
-
 
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
@@ -102,8 +99,8 @@ app.put('/articles/:id', (request, response) => {
 
 app.delete('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // Number 3 of the diagram correponds with this line of code. 
-  // Interacts with: Article.prototype.deleteRecord 
+  // Number 3 of the diagram correponds with this line of code.
+  // Interacts with: Article.prototype.deleteRecord
   // CRUD: Delete.
   client.query(
     `DELETE FROM articles WHERE article_id=$1;`,
@@ -119,7 +116,9 @@ app.delete('/articles/:id', (request, response) => {
 
 app.delete('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 3 of the diagram correponds with this line of code.
+  // Interacts with: Article.truncateTable = callback => {
+  // CRUD: Delete.
   client.query(
     'DELETE FROM articles;'
   )
@@ -132,7 +131,7 @@ app.delete('/articles', (request, response) => {
 });
 
 // COMMENT: What is this function invocation doing?
-// PUT YOUR RESPONSE HERE
+// It queries the DB for articles and creates the TABLE and adds the articles if the TABLE does not exist. Then it invokes loadArticles to our html page.
 loadDB();
 
 app.listen(PORT, () => {
@@ -144,7 +143,9 @@ app.listen(PORT, () => {
 ////////////////////////////////////////
 function loadArticles() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 3 & 4 of the diagram correponds with this line of code.
+  // Interacts with: Does not interact.
+  // CRUD: Read
   client.query('SELECT COUNT(*) FROM articles')
     .then(result => {
     // REVIEW: result.rows is an array of objects that PostgreSQL returns as a response to a query.
@@ -168,7 +169,9 @@ function loadArticles() {
 
 function loadDB() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 3 of the diagram correponds with this line of code.
+  // Interacts with: Does not interact.
+  // CRUD: Create
   client.query(`
     CREATE TABLE IF NOT EXISTS articles (
       article_id SERIAL PRIMARY KEY,
