@@ -4,13 +4,15 @@ const fs = require('fs');
 const express = require('express');
 
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5432;
+const conString = 'postgres://postgres:1234@localhost:5432/kilovolt';
 const app = express();
 
-const client = new pg.Client();
+const client = new pg.Client(conString);
 
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
+client.on('error', console.error);
 
 
 // REVIEW: Install the middleware plugins so that our app can use the body-parser module.
