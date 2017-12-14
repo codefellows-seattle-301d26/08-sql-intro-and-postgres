@@ -172,8 +172,14 @@ app.listen(PORT, () => {
 //////// ** DATABASE LOADER ** ////////
 ////////////////////////////////////////
 function loadArticles() {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? 
+  //Answer: 3 & 4
+
+  //COMMENT: Which method of article.js is interacting with this particular piece of `server.js`? 
+  //ANSWER: Notning directly, but indirectly every method that accesses the databse relies on there being information to access
+
+  //What part of CRUD is being enacted/managed by this particular piece of code?
+  // ANSWER: Create and Read because its both selecting and updating from the database as well 
   client.query('SELECT COUNT(*) FROM articles')
     .then(result => {
     // REVIEW: result.rows is an array of objects that PostgreSQL returns as a response to a query.
@@ -196,8 +202,12 @@ function loadArticles() {
 }
 
 function loadDB() {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? 
+  //ANSWER: 3 & 4
+  //Which method of article.js is interacting with this particular piece of `server.js`? 
+  //ANSWER: None becuase we are just settin up the database
+  //What part of CRUD is being enacted/managed by this particular piece of code?
+  // ANSWER:Creating
   client.query(`
     CREATE TABLE IF NOT EXISTS articles (
       article_id SERIAL PRIMARY KEY,
