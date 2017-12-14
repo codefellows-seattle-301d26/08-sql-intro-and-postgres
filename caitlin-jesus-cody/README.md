@@ -16,10 +16,12 @@ This is a blog application that will post articles from various authors and cate
 ## Architecture
  Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. 
 
+jQuery and JavaScript, HTML, CSS, PostgreSQL and node.js.
+
 ## Change Log
  Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+12-14-2017 1:36pm - Application now has a fully-functional node server, and postgres database.
 
 ## Credits and Collaborations
  Give credit (and a link) to other people or resources that helped you build this application. 
