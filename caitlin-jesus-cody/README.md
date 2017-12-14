@@ -11,6 +11,8 @@ This is a blog application that will post articles from various authors and cate
 ## Getting Started
  What are the steps that a user must take in order to build this app on their own machine and get it running? 
 
+ Read through the documentation explaining what is expected for this lab. Have an understanding of how to use PostgreSQL and get the database and server up and running. Install pg package to server.js and make sure to complete connection string.
+
 ## Architecture
  Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. 
 
