@@ -157,7 +157,7 @@ function loadArticles() {
 
 function loadDB() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // The 3rd & 4th in the full-stack-diagram, query & result. This code is interacting with deleteRecord method of the article.js. Create is being enacted.
+  // The 3rd & 4th in the full-stack-diagram, query & result. This code doesn't innteract with any methods in articles.js. It is called when the server.js file is first loaded. It reads the hackerIpsum.json file from the filesystem and then populates the postgresql database which is used from that point forward.
   client.query(`
     CREATE TABLE IF NOT EXISTS articles (
       article_id SERIAL PRIMARY KEY,
