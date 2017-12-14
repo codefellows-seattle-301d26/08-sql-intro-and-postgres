@@ -2,12 +2,14 @@
 
 const fs = require('fs');
 const express = require('express');
+const { Client } = require('pg');
 
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
+const DATABASE_URL = 'postgres://SARAH:123@HOST:PORT/DBNAME';
+const client = new pg.Client(DATABASE_URL);
 
-const client = new pg.Client();
 
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
