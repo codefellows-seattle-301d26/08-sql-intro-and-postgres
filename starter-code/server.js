@@ -22,7 +22,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // 5. We aren't using any part of article.js because we are just feeding the new.html. We are updating the content on the page for the client.
   response.sendFile('new.html', {root: './public'});
 });
 
