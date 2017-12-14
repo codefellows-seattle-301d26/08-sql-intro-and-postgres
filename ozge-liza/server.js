@@ -25,7 +25,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // These lines of code represent #2 #5 on the full stack diagram. The Article.loadAll  is the method in article.js that is interacting with this piece of server.js. These lines of code are using 'read' part of CRUD because we used the .get method.
+  // These lines of code represent #2 #5 on the full stack diagram. There is not a method in article.js that is interacting with this piece of server.js, it is only responding the new.html file. These lines of code are using 'read' part of CRUD because we used the .get method.
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -46,7 +46,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // these lines of code represent the  #3 #4  on the full stack diagram.The Article.prototype.insertRecord is the method that is interacting with this particular piece of code. The 'create ' part of CRUD is being used to insert data into database.
+  // These lines of code represent the  #3 #4  on the full stack diagram.The Article.prototype.insertRecord is the method that is interacting with this particular piece of code. The 'create ' part of CRUD is being used to insert data into database.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
@@ -71,7 +71,7 @@ app.post('/articles', (request, response) => {
 
 app.put('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // These lines of code represent the  #3 #4  on the full stack diagram. The Article.prototype.updateRecord is the method that is interacting with this particular piece of code. The 'update ' part of CRUD is being used to update the data.
   client.query(
     `UPDATE articles
     SET
