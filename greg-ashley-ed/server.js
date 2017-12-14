@@ -33,7 +33,7 @@ app.get('/new', (request, response) => {
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // Number 3 of the diagram corresponds to this line of code.
-  //This line of code: app.get('/articles', (request, response) => {
+  // This line of code: Article.fetchAll = callback => {
   // CRUD: Read.
   client.query('SELECT * FROM articles')
     .then(function(result) {
@@ -46,7 +46,9 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 3 on the diagram corresponds with this line of code.
+  // Interacts with: Article.prototype.insertRecord
+  // CRUD: Create.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
