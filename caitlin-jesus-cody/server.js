@@ -23,7 +23,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // 5  /Article.prototype.insertRecord method  / read 
+  // 2,5  /Article.prototype.insertRecord method  / read 
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -32,6 +32,8 @@ app.get('/new', (request, response) => {
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // 2,3,4,5/Article.prototype.fetchAll method/ Read
+  // 3,4 Article.fetchAll, Reading and updating. (Cody)
+
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -44,6 +46,7 @@ app.get('/articles', (request, response) => {
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // 2,3,4,5/ Article.prototype.insertRecords / Reading, Updating
+  // 3,/ Article.prototype.insertRecords / Create (Cody)
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
@@ -69,6 +72,7 @@ app.post('/articles', (request, response) => {
 app.put('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   //2,3, 4,5 / Article.prototype.updateRecord /Reading Updating
+  //3, / Article.prototype.updateRecord /Updating (Cody)
   client.query(
     `UPDATE articles
     SET
@@ -96,6 +100,7 @@ app.put('/articles/:id', (request, response) => {
 app.delete('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // 3 & 4 & 5  / Article.prototype.deleteRecord / delete
+  // 3 / Article.prototype.deleteRecord / delete (Cody)
   client.query(
     `DELETE FROM articles WHERE article_id=$1;`,
     [request.params.id]
