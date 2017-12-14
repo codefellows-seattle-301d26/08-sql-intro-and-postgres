@@ -34,9 +34,19 @@ app.get('/new', (request, response) => {
 
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? 
+
+  //Answer This is doing part 3 and 4 in the diagram because we are only interacting between the server.js and the model.
+
+  //Which method of article.js is interacting with this particular piece of `server.js`?
+
+  //Answer: The fetch all method is connected to this section of code
 
   // this line says hey router, when the router asks for /articles, go to the model, and select EVERYTHING, then take the rows (ie all the article objects) from that 'select all' function and send them as the response, when 'app' ie 'express' ie the controller/router requests /articles.  Which is to say when something on the view, triggers a request for the URI '/articles'.
+
+  //Comment Pt2:  What part of CRUD is being enacted/managed by this particular piece of code?
+  //Anser: The read part becuase it isnt creating updating or destroying; It is just going into the database, selecting all the article objects, and returning them when requested.
+
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -47,8 +57,14 @@ app.get('/articles', (request, response) => {
 });
 
 app.post('/articles', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? 
+  //Answer: 3 and 4
+  //Which method of article.js is interacting with this particular piece of `server.js`? 
+  // In Article.proptotype.insertRecord $.post. It is the only time in server.js that interacts with .post directly
+
+  //COMMENT: What part of CRUD is being enacted/managed by this particular piece of code?
+  // Answer: It is the update part of CRUD
+ 
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
