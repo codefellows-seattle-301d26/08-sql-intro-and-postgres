@@ -126,7 +126,7 @@ app.delete('/articles', (request, response) => {
 });
 
 // COMMENT: What is this function invocation doing?
-// PUT YOUR RESPONSE HERE
+// It creates tables if there is no tables  and invoking loadArticles() function.It basicly creates  the database.
 loadDB();
 
 app.listen(PORT, () => {
