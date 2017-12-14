@@ -160,7 +160,8 @@ app.delete('/articles', (request, response) => {
 });
 
 // COMMENT: What is this function invocation doing?
-// PUT YOUR RESPONSE HERE
+// it's creating the database structure if it does not already exist and then calling the loadArticles function (load articles then accesses the hackeripsum file if there is not already content in the database)
+
 loadDB();
 
 app.listen(PORT, () => {
