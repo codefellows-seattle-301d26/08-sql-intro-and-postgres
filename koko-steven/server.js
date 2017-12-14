@@ -7,15 +7,12 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const conString = 'postgres://postgres:123@localhost:5433/kilovolt';
 const app = express();
-
 const client = new pg.Client(conString);
 
-// REVIEW: Use the client object to connect to our DB.
 client.connect();
 client.on('error', console.error);
 
 
-// REVIEW: Install the middleware plugins so that our app can use the body-parser module.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
@@ -24,7 +21,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // The 2nd & 5th in the full-stack-diagram, request & response.This code is interacting with ___ method of the article.js. Creating is being enacted.
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -32,7 +29,7 @@ app.get('/new', (request, response) => {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // The 3rd & 4th in the full-stack-diagram, query & result.This code is interacting with fetchAll method of the article.js. Reading is being enacted.
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -44,7 +41,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // The 3rd & 4th in the full-stack-diagram, query& result.This code is interacting with insertRecord method of the article.js. Creating is being enacted.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
@@ -69,7 +66,7 @@ app.post('/articles', (request, response) => {
 
 app.put('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // The 3rd & 4th in the full-stack-diagram, query& result. This code is interacting with updateRecord method of the article.js. Update is being enacted.
   client.query(
     `UPDATE articles
     SET
