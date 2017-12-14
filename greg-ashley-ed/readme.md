@@ -5,7 +5,7 @@
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) --> The articleView.js changes means that we are not accessing the JSON file directly, and instead retrieving the articles from a database
 
 This application is a blog with post articles from various authors and categories. It will use a database to store these articles and make it so the articles are avaliable to users from an external source.
 

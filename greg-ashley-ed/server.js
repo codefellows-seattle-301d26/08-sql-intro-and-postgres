@@ -7,10 +7,9 @@ const pg = require('pg');
 const Client = pg.Client;
 const PORT = process.env.PORT || 3000;
 const app = express()
-const DATABASE_URL = 'postgres://localhost:5432/users'
+const DATABASE_URL = 'postgres://localhost:5432/kilovolt'
 const client = new Client(DATABASE_URL)
 client.connect();
-
 
 // REVIEW: Install the middleware plugins so that our app can use the body-parser module.
 app.use(bodyParser.json());
@@ -70,7 +69,7 @@ app.post('/articles', (request, response) => {
 
 app.put('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // Number 3 of the diagram corresponds with this line of code. 
+  // Number 3 of the diagram corresponds with this line of code.
   // Interacting with: Article.prototype.updateRecord
   // CRUD: UPDATE.
   client.query(
@@ -137,7 +136,6 @@ loadDB();
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}!`);
 });
-
 
 //////// ** DATABASE LOADER ** ////////
 ////////////////////////////////////////
