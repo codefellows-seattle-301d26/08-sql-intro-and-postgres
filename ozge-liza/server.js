@@ -138,7 +138,7 @@ app.listen(PORT, () => {
 ////////////////////////////////////////
 function loadArticles() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // These lines of code represent #3 #4  on the full stack diagram. There is not a method in article.js that is interacting with this particular piece of server.js. It uses both Create and Read in CRUD. 
+  // These lines of code represent #3 #4  on the full stack diagram. There is not a method in article.js that is interacting with this particular piece of server.js. It uses both Create and Read in CRUD.
   client.query('SELECT COUNT(*) FROM articles')
     .then(result => {
     // REVIEW: result.rows is an array of objects that PostgreSQL returns as a response to a query.
@@ -162,7 +162,7 @@ function loadArticles() {
 
 function loadDB() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // These lines of code represent #3 #4  on the full stack diagram. There is not a method in article.js that is interacting with this particular piece of server.js. It uses Create in CRUD. 
   client.query(`
     CREATE TABLE IF NOT EXISTS articles (
       article_id SERIAL PRIMARY KEY,
