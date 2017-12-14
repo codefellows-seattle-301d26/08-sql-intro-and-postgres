@@ -5,11 +5,11 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 const pg = require('pg');
-const Client = new pg.Client();
+const Client = pg.Client;
 const PORT = process.env.PORT || 3000;
+const app = express()
 const DATABASE_URL = 'postgres://localhost:5432/users'
 const client = new Client(DATABASE_URL)
-const app = express();
 client.connect();
 
 
