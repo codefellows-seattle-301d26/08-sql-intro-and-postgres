@@ -21,7 +21,7 @@ app.use(express.static('./public'));
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // Number 5 of the diagram corresponds to this line of code.
-  //This line of code: Article.fetchAll = callback => {
+  // It is not interacting with anything in article.js
   // CRUD: Read.
   response.sendFile('new.html', {root: './public'});
 });
