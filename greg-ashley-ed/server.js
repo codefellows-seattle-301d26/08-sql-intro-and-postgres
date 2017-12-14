@@ -6,13 +6,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pg = require('pg');
 const Client = new pg.Client();
-// const { Client } = require('pg')
 const PORT = process.env.PORT || 3000;
 const DATABASE_URL = 'postgres://localhost:5432/users'
 const client = new Client(DATABASE_URL)
 const app = express();
-
-// REVIEW: Use the client object to connect to our DB.
 client.connect();
 
 
@@ -25,7 +22,9 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 5 of the diagram corresponds to this line of code.
+  //This line of code: Article.fetchAll = callback => {
+  // CRUD: Read.
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -33,7 +32,9 @@ app.get('/new', (request, response) => {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // Number 3 of the diagram corresponds to this line of code.
+  //This line of code: app.get('/articles', (request, response) => {
+  // CRUD: Read.
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
