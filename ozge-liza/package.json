@@ -1,15 +1,32 @@
 {
-  "name": "mvc-blog",
+  "name": "08-sql-intro-and-postgres",
   "version": "1.0.0",
-  "description": "As we now complete our MVC conversation, we can refactor our app to use good MVC separation of concerns.",
+  "description": "introduction to sql",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Code Fellows",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3",
-    "body-parser": "^1.17.1"
-  }
+    "body-parser": "^1.18.2",
+    "express.js": "^1.0.0",
+    "init": "^0.1.2",
+    "nodemon": "^1.12.7",
+    "pg": "^7.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozgekb/08-sql-intro-and-postgres.git"
+  },
+  "keywords": [
+    "sql",
+    "node.js"
+  ],
+  "author": "ozge-liza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ozgekb/08-sql-intro-and-postgres/issues"
+  },
+  "homepage": "https://github.com/ozgekb/08-sql-intro-and-postgres#readme"
 }
