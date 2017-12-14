@@ -6,6 +6,8 @@
 ## Overview
  Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) 
 
+This is a blog application that will post articles from various authors and categories. It uses a database to store these articles and make it so the articles are avaliable to users from an external source.
+
 ## Getting Started
  What are the steps that a user must take in order to build this app on their own machine and get it running? 
 
