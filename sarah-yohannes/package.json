@@ -1,0 +1,29 @@
+{
+  "name": "mvc-blog",
+  "version": "1.0.0",
+  "description": "As we now complete our MVC conversation, we can refactor our app to use good MVC separation of concerns.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Code Fellows",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarasaurus/08-sql-intro-and-postgres.git"
+  },
+  "keywords": [
+    "codefellows",
+    "learning",
+    "lab"
+  ],
+  "bugs": {
+    "url": "https://github.com/sarasaurus/08-sql-intro-and-postgres/issues"
+  },
+  "homepage": "https://github.com/sarasaurus/08-sql-intro-and-postgres#readme"
+}
