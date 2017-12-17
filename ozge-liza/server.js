@@ -3,7 +3,6 @@
 const fs = require('fs');
 const express = require('express');
 const pg = require('pg')
-const Client  = pg.Client
 
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
@@ -12,11 +11,11 @@ const conString = 'postgres://localhost:5432'
 
 const client = new pg.Client(conString);
 
-// REVIEW: Use the client object to connect to our DB. 
+// REVIEW: Use the client object to connect to our DB.
 client.connect();
 
 
-// REVIEW: Install the middleware plugins so that our app can use the body-parser module. 
+// REVIEW: Install the middleware plugins so that our app can use the body-parser module.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
@@ -162,7 +161,7 @@ function loadArticles() {
 
 function loadDB() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // These lines of code represent #3 #4  on the full stack diagram. There is not a method in article.js that is interacting with this particular piece of server.js. It uses Create in CRUD. 
+  // These lines of code represent #3 #4  on the full stack diagram. There is not a method in article.js that is interacting with this particular piece of server.js. It uses Create in CRUD.
   client.query(`
     CREATE TABLE IF NOT EXISTS articles (
       article_id SERIAL PRIMARY KEY,
